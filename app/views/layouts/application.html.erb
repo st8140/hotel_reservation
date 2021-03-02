@@ -37,13 +37,14 @@
             
           </div>
           <div class="nav-item">
-            <%= link_to("ログイン", "/signup", {class: "btn btn-primary my-2 mx-3"}) %>
-            <%= link_to("登録する", :new_user, {class: "btn btn-secondary"}) %>
+            <%= link_to("ログイン", "/login", {class: "btn btn-primary my-2 mx-3"}) %>
+            <%= link_to("登録する", "/signup", {class: "btn btn-secondary"}) %>
             <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="">
           </div>
         </div>
       </div>
     </header>
+    
     <%= yield %>
     
     <footer class="footer">

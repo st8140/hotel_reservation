@@ -58,7 +58,8 @@ img {
  margin-left: auto;
 } 
 
- /*------------------header---------------------*/
+
+ /*----------------------------header-------------------------------*/
  
  .header {
    width: 100%;
@@ -131,25 +132,6 @@ img {
  border-color: #6c757d;
 }
 
-.ml-3, .mx-3 {
- margin-left: 1rem!important;
-}
-
-.mr-3, .mx-3 {
- margin-right: 1rem!important;
-}
-
-.mb-2, .my-2 {
-  margin-bottom: .5rem!important; 
-}
-
-.mt-2, .my-2 {
- margin-top: .5rem!important;
-}
-
-.p-1 {
- padding: .25rem!important;
-}
 
 .host-icon {
  width: 65px;
@@ -172,7 +154,7 @@ img {
     text-align: center;
 }
 
- /*------------------top---------------------*/
+ /*----------------------------------------------top-------------------------------------------------*/
 
 .top .top-main {
  background-image: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg);
@@ -216,32 +198,6 @@ label {
 display: block;
 }
 
-.form-control {
- display: block;
- width: 100%;
- height: calc(1.5em + .75rem + 2px);
- padding: .375rem .75rem;
- font-size: 1rem;
- font-weight: 400;
- line-height: 1.5;
- color: #495057;
- background-color: #fff;
- background-clip: padding-box;
- border: 1px solid #ced4da;
- border-radius: .25rem;
- transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-
-.col-lg-6 {
- -ms-flex: 0 0 50%;
- flex: 0 0 50%;
- max-width: 50%;
-}
-
-.m-5 {
- margin: 3rem!important;
-}
 
 .top .section-title {
  font-size: 24px;
@@ -249,13 +205,25 @@ display: block;
  font-weight: bold;
 }
 
-.row {
- display: -ms-flexbox;
- display: flex;
- -ms-flex-wrap: wrap;
- flex-wrap: wrap;
- margin-right: -15px;
- margin-left: -15px;
+.top span {
+ position: absolute;
+ bottom: 50px;
+ left: 0;
+ right: 0;
+ color: #fff;
+ font-weight: bold;
+ z-index: 1;
+ margin: auto;
+ text-align: center;
+ font-size: 24px;
+}
+
+.top .panel-image {
+ width: 100%;
+ height: 360px;
+ object-fit: cover;
+ border-radius: 5px;
+ margin-bottom: 25px;
 }
 
 
@@ -275,10 +243,77 @@ display: block;
 .container {
  max-width: 960px;
 }
+
+.col-lg-3 {
+ -ms-flex: 0 0 25%;
+ flex: 0 0 25%;
+ max-width: 25%;
+}
 }
 
 @media (min-width: 1200px){
 .container {
 max-width: 1140px;
 }
+}
+
+
+ /*-------------------------------------------- new -------------------------------------------------*/
+ 
+ .device {
+ padding-top: 36px;
+ font-size: 16px;
+}
+
+.device-form {
+ max-width: 600px;
+ text-align: center;
+ padding: 24px;
+ margin: 0px auto;
+ background-color: white;
+ border-radius: 4px;
+ box-shadow: rgb(21 27 38 / 15%) 0px 1px 3px 0px;
+}
+
+.device p {
+ font-size: 16px;
+}
+
+.device-inner {
+ width: 360px;
+ margin: 0px auto;
+}
+
+div.field, div.actions {
+ margin-bottom: 10px;
+}
+
+.required-b::before {
+ content: "必須";
+ color: #fff;
+ background-color: #ff0000a8;
+ font-size: 12px;
+ border-radius: 5px;
+ padding: 4px;
+ margin: 0 5px;
+}
+
+.col-10 {
+ -ms-flex: 0 0 83.333333%;
+ flex: 0 0 83.333333%;
+ max-width: 83.333333%;
+}
+
+.mt-4, .my-4 {
+ margin-top: 1.5rem!important;
+}
+
+.device a {
+ color: #007bff !important;
+}
+
+.field_with_errors {
+ padding: 2px;
+ background-color: red;
+ display: table;
 }

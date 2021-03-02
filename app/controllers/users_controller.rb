@@ -30,6 +30,20 @@ class UsersController < ApplicationController
   def destroy
   end
   
+  def login_form
+  end
+  
+  def login
+    @user = User.find_by(email: params(:email))
+    if @user && @user.authenticate(params[:password])
+      flash[:notice] = "ログインしました"
+      redirect_to("/")
+    else
+      @error_message = "メールアドレスまたはパスワードが違います。"
+      render("users/login_form")
+    end
+  end
+  
   
   private
   
