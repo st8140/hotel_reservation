@@ -7,4 +7,6 @@ ja:
         name: 名前
         email: メールアドレス
         password: パスワード
+        password_digest: パスワード
+        password_confirmation: パスワード確認
         introduction: 自己紹介

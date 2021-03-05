@@ -1,7 +1,3 @@
-<% if flash.notice %>
-  <p class="notice error"><%= flash.notice %></p>
-<% end %>
-
 <ul>
   <div class="error_message">
     <% @user.errors.full_messages.each do |message| %>
