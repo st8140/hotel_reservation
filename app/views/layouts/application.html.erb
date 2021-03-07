@@ -33,9 +33,9 @@
           </form>
         </div>
           <div class="header-right-nav">
-            <% if session[:user_id]%>
+            <% if user_signed_in?%>
               <div class="nav-item d-sm-inline-block d-none">
-                <%= @current_user.name %>
+                <%= current_user.name %>
               </div>
               <div class="nav-item">
                 <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="">
@@ -50,17 +50,17 @@
                     <%= link_to("登録済みルーム一覧", "/") %>
                   </li>
                   <li>
-                    <%= link_to("設定", "/account") %>
+                    <%= link_to("設定", "/users/account") %>
                   </li>
                   <li>
-                    <%= link_to("ログアウト", "/logout", {method: :post}) %>
+                    <%= link_to("ログアウト", "/users/sign_out", {method: :delete}) %>
                   </li>
                 </ul>
               </div>
             <% else %>
               <div class="nav-item">
-                <%= link_to("ログイン", "/login", {class: "btn btn-primary my-2 mx-3"}) %>
-                <%= link_to("登録する", "/signup", {class: "btn btn-secondary"}) %>
+                <%= link_to("ログイン", "/users/sign_in", {class: "btn btn-primary my-2 mx-3"}) %>
+                <%= link_to("登録する", "/users/sign_up", {class: "btn btn-secondary"}) %>
               </div>
           <% end %>
           </div>
@@ -76,9 +76,8 @@
 </script>
     </script>
     
-    <% if flash.notice %>
-    <p class="notice"><%= flash.notice %></p>
-  <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   
     <%= yield %>
     

@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: "users/sessions",
+  }
+  
   resources :rooms
-  resource :user, only: [:new, :create, :edit, :update, :show, :destroy]
-  resources :users, only: [:index, :show]
+  # resource :user, only: [:edit, :update, :show, :destroy]
+  # resources :users, only: [:new, :create, :index, :show]
   
-  get 'account', to: 'users#show'
-  get 'signup', to: 'users#new'
-  get 'login', to: 'users#login_form' 
-  post 'login', to: 'users#login'
-  post 'logout', to: 'users#logout'
+  get 'users/account' => 'users#show'
   
-  get '/', to: 'home#top'
+  devise_scope :user do
+    get '/users/profile' => 'users/registrations#profile_edit', as: 'profile_edit'
+    patch '/users/profile_update' => 'users/registrations#profile_update', as: 'profile_update'
+  end
+  
+  
+  get '/' => 'home#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

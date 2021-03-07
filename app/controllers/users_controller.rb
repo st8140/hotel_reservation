@@ -30,6 +30,15 @@ class UsersController < ApplicationController
   end
   
   def update
+    respond_to do |format|
+      if current_user.update_with_password(user_params)
+        # パスワードを変更するとログアウトしてしまうので、再ログインが必要
+       sign_in(current_user, bypass: true)
+        format.html { redirect_to edit_setting_path }
+      else
+        format.html { render :edit }
+      end
+    end
   end
   
   def destroy
@@ -62,7 +71,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password)
   end
   
 end

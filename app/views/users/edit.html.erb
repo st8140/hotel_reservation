@@ -3,6 +3,8 @@
     <p class="mb-3">アカウント編集</p>
     <div class="device-inner">
       <%= form_for @current_user do |f| %>
+        
+        <%= render "shared/error_message", model: f.object %>
       
         <ul>
           <div class="error_message">

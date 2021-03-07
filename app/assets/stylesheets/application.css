@@ -58,6 +58,12 @@ img {
  margin-left: auto;
 } 
 
+.notice {
+ background-color: #7fbfff;
+ text-align: center;
+ color: #fff;
+}
+
 
  /*----------------------------header-------------------------------*/
  
@@ -190,7 +196,6 @@ img {
  display: -ms-flexbox;
   display: flex; 
  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; 
   margin-right: -15px; 
   margin-left: -15px; 
 }
@@ -283,6 +288,16 @@ display: block;
  -ms-flex: 0 0 16.666667%;
  flex: 0 0 16.666667%;
  max-width: 16.666667%;
+}
+
+.offset-md-3 {
+ margin-left: 25%;
+}
+
+.col-md-6 {
+ -ms-flex: 0 0 50%;
+ flex: 0 0 50%;
+ max-width: 50%;
 }
 
 }
@@ -460,4 +475,28 @@ div.field, div.actions {
 .btn-outline-secondary {
  color: #6c757d;
  border-color: #6c757d;
+}
+
+h2 {
+ font-size: 2rem;
+}
+
+/*--------------------------------------------- profile_edit ------------------------------------------------*/
+
+.user .icon-box {
+ text-align: center;
+}
+
+.required-a::after {
+ content: "必須";
+ color: #fff;
+ background-color: #ff0000a8;
+ font-size: 12px;
+ border-radius: 5px;
+ padding: 4px;
+ margin: 0 5px;
+}
+
+textarea.form-control {
+ height: auto;
 }

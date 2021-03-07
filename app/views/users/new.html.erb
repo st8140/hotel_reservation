@@ -4,7 +4,7 @@
     <div class="device-inner">
       <%= form_for @user do |f| %>
         
-        <%= render "shared/error_message" %>
+        <%= render "shared/error_message", model: f.object %>
         
         
         <div class="field form-row">
