@@ -39,7 +39,11 @@
             <div class="row">
               <div class="col-md-6 offset-md-3">
                 <div class="icon-box">
-                  <img alt="アイコン画像" class="icon-image host-icon" src="https://presite-potepancamp-rails-02.herokuapp.com/uploads/user/image/295/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+                  <% if current_user.persisted? && current_user.user_image? %>
+                    <%= image_tag current_user.user_image.to_s, alt: "アイコン画像", class: "icon-image host-icon" %>
+                  <% else %>
+                    <% image_tag "default.jpg", alt: "アイコン画像", class: "icon-image host-icon" %>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -48,7 +52,7 @@
           <div class="update-content">
             <div class="row">
               <label class="col-md-3 required-a" for="image">アイコン画像</label>
-              <%= f.file_field :image, class: "mb-4 col-md-9", placeholder: "アイコン画像をアップロード" %>
+              <%= f.file_field :user_image, class: "mb-4 col-md-9", placeholder: "アイコン画像をアップロード" %>
             </div>
           </div>
           

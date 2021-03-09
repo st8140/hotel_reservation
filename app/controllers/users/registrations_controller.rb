@@ -51,7 +51,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
   
-
+  def after_sign_up_path_for(resource)
+    profile_edit_path(resource)
+  end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

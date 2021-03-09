@@ -64,6 +64,12 @@ img {
  color: #fff;
 }
 
+.alert {
+ background-color: #ff7f7f;
+ text-align: center;
+ color: #fff;
+}
+
 
  /*----------------------------header-------------------------------*/
  
@@ -500,3 +506,58 @@ h2 {
 textarea.form-control {
  height: auto;
 }
+
+
+
+ /*--------------------------------------------- room-new ------------------------------------------------*/
+ 
+ .room-new {
+ width: 100%;
+}
+
+.room-new .room-nav-pc {
+ height: 100vh;
+}
+
+.room-new .room-nav {
+ width: 100%;
+ box-sizing: border-box;
+ padding: 30px 15px;
+}
+
+.room-new .room-nav-pc .active {
+ border-right: 3px solid #4a90e2;
+}
+
+.room-new .room-nav li {
+ font-size: 18px;
+ padding: 10px;
+}
+
+.room-new .room-nav-mobile {
+ height: auto;
+}
+
+.room-new .room-view {
+ background-color: #F6F8F9;
+ border-left: 2px solid #e2e2e2;
+}
+
+.room-new .room-view-box {
+ max-width: 880px;
+ background-color: #fff;
+ border: 1px solid #eaedef;
+ margin: 50px auto;
+}
+
+.room-new .update-content {
+ border-bottom: 1px solid #eaedef;
+ padding: 20px;
+ margin: 0 15px;
+ font-size: 16px;
+}
+
+.room-new .update-content label {
+ font-weight: bold;
+}
+

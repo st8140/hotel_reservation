@@ -38,10 +38,10 @@
                 <%= current_user.name %>
               </div>
               <div class="nav-item">
-                <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="">
+                <%= image_tag current_user.user_image.to_s, class: "mx-3 p-1 host-icon nav-trigger", alt: "メニュー"  %>
                 <ul class="header-nav-menu">
                   <li>
-                    <%= link_to("ルーム登録", "/" ) %>
+                    <%= link_to("ルーム登録", "/rooms/new" ) %>
                   </li>
                   <li>
                     <%= link_to("予約済みルーム一覧", "/") %>
