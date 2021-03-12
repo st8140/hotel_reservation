@@ -62,6 +62,8 @@
               <%= f.file_field :room_image, class: "mb-4 col-md-9", placeholder: "ルーム画像をアップロード" %>
             </div>
           </div>
+          
+          <%= f.hidden_field :user_id, value: current_user.id %>
         
         <div class="update-content">
             <div class="row">

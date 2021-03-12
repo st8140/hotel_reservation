@@ -10,16 +10,13 @@ class ReservationsController < ApplicationController
   
   def confirm
     @reservation = Reservation.new(reservation_params)
-    if @reservation.invalid?
-      render("rooms/#{@room}.id")
-    end
+    render room_path if @reservation.invalid?
   end
   
   def create
     @reservation = Reservation(reservation_params)
-    if @reservation.save
-      redirect_to(:reservation)
-    end
+    render room_path and return if params[:back] || !@reservation.save
+    redirect_to @reservation
   end
   
   def show

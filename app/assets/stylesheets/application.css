@@ -70,6 +70,11 @@ img {
  color: #fff;
 }
 
+.delete-btn {
+ background-color: #ff7f7f!important;
+ color: #fff!important;
+ margin-top: 1.5rem;
+}
 
  /*----------------------------header-------------------------------*/
  

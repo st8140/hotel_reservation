@@ -10,3 +10,6 @@ ja:
         password_digest: パスワード
         password_confirmation: パスワード確認
         introduction: 自己紹介
+        start_date: 開始日
+        end_date: 終了日
+        purson_num: 人数

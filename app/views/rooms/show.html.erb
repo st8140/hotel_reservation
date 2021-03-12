@@ -27,7 +27,7 @@
         <h5 class="price-icon"><%= @room.charge %> / 日</h5>
         
         <div class="room-show-date-select">
-          <%= form_with(model: @room, local: true) do |f| %>
+          <%= form_with(model: @reservation, local: true, url: confirm_reservations_path(@reservation)) do |f| %>
             <label for="start_date">開始日</label>
             <%= f.date_field :start_date, class: "form-control mb-4" %>
             
@@ -42,6 +42,11 @@
             <%= f.submit "予約する", class: "btn btn-primary form-control" %>
             
           <% end %>
+          
+            <% if @room.user_id == current_user.id %>
+              <%= link_to "ルームを削除する", "/rooms/#{@room.id}", method: :delete, class: "btn form-control delete-btn", data: { confirm: "本当に削除しますか？" } %>
+            <% end %>
+        
         </div>
       </div>
     </div>
