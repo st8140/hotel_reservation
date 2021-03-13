@@ -12,12 +12,10 @@ Rails.application.routes.draw do
   get 'users/account' => 'users#show'
   
   get '/rooms/posts' => 'rooms#index'
-  resources :rooms, only: [:new, :create, :show, :edit, :update, :destroy]
- 
-  resources :reservations, only: [:new, :create, :show] do
-    collection do
-      post :confirm
-    end
+  resources :rooms do
+    resources :reservations
+    post 'reservations/confirm' => 'reservations#confirm'
+    post 'reservations/create' => 'reservations#create'
   end  
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -19,7 +19,7 @@
           <p class="room-show-profile-address"><%= @room.address %></p>
         </div>
       </div>
-      <p class="room-show-detail-content"><%= @room.introduction %></p>
+      <p class="room-show-detail-content"><%= @room.room_introduction %></p>
     </div>
     
     <div class="col-md-4">
@@ -27,7 +27,10 @@
         <h5 class="price-icon"><%= @room.charge %> / 日</h5>
         
         <div class="room-show-date-select">
-          <%= form_with(model: @reservation, local: true, url: confirm_reservations_path(@reservation)) do |f| %>
+          <%= form_for [@room, @reservation], local: true, url: room_reservations_confirm_path(@room) do |f| %>
+          
+          <%= render "shared/error_message", model: f.object %>
+          
             <label for="start_date">開始日</label>
             <%= f.date_field :start_date, class: "form-control mb-4" %>
             
@@ -38,6 +41,7 @@
             <%= f.number_field :purson_num, class: "form-control mb-4" %>
             
             <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :reservation_user_id, value: current_user.id %>
             
             <%= f.submit "予約する", class: "btn btn-primary form-control" %>
             

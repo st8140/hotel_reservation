@@ -20,8 +20,6 @@
       <div class="room-view-box">
         <%= form_for @room do |f| %>
         
-        <%= render "shared/error_message", model: f.object %>
-        
           <div class="update-content">
             <div class="row">
               <h5>ルーム情報登録</h5>
@@ -37,8 +35,8 @@
           
           <div class="update-content">
             <div class="row">
-              <label class="col-md-3 required-a" for="introduction">ルーム名</label>
-              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "ルーム説明を入力", size: "30x5" %>
+              <label class="col-md-3 required-a" for="room_introduction">ルーム説明</label>
+              <%= f.text_area :room_introduction, class: "form-control mb-4 col-md-9", placeholder: "ルーム説明を入力", size: "30x5" %>
             </div>
           </div>
           
