@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   end
   get 'users/account' => 'users#show'
   
-  get '/rooms/posts' => 'rooms#index'
+  get '/rooms/posts' => 'rooms#index', as: 'index_room'
+  get '/rooms/new' => 'rooms#new', as: 'new_room'
+  post '/rooms/create' => 'rooms#create', as: 'rooms'
+  
   resources :rooms do
     resources :reservations
     post 'reservations/confirm' => 'reservations#confirm'
     post 'reservations/create' => 'reservations#create'
-  end  
+  end 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
