@@ -2,9 +2,9 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_current_user, {only: [:edit, :update, :destroy]}
   
-  
   def index
     @rooms = current_user.rooms
+    @reservation= Reservation.new
   end
   
   def new
@@ -41,10 +41,6 @@ class RoomsController < ApplicationController
     redirect_to("/rooms/posts")
   end
   
-  def search
-    @rooms = Room.search(params[:search])
-  end
-  
   def ensure_current_user
     @room = Room.find_by(id: params[:id])
     if @room.user_id != current_user.id
@@ -53,9 +49,13 @@ class RoomsController < ApplicationController
     end
   end
   
+  def search
+    
+  end
   
   
   private
+  
   
   def room_params
     params.require(:room).permit(:room_name, :room_introduction, :charge, :address, :room_image, :user_id)

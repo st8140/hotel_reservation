@@ -1,9 +1,5 @@
 class Reservation < ApplicationRecord
-  validate :start_end_check
-  validate :start_check
-  validates :start_date, presence: true
-  validates :end_date, presence: true
-  validates :purson_num, presence: true
+ 
   
   belongs_to :room
   belongs_to :user

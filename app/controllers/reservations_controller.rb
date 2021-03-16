@@ -6,7 +6,9 @@ class ReservationsController < ApplicationController
   
   def new
     @reservation = Reservation.new
-    @room = Room.find(params[:id])
+    @room = Room.find(params[:room_id])
+    @user = User.find_by(params[:id])
+    
   end
   
   def confirm
@@ -14,6 +16,9 @@ class ReservationsController < ApplicationController
     @room = Room.find_by(params[:id])
     @reservation.reservation_user_id = current_user.id
     @reservation.room_id = @room.id
+    @reservation.reservation_name = @room.room_name
+    @reservation.reservation_introduction = @room.room_introduction
+    @reservation.reservation_image = @room.room_image
     @day = (@reservation.end_date - @reservation.start_date).to_i
     @charge =  @room.charge
     @total = (@charge * @day) * @reservation.purson_num
@@ -34,6 +39,7 @@ class ReservationsController < ApplicationController
   end
   
   def show
+    @reservation = Reservation.find_by(room_id: params[:room_id])
   end
   
   def edit
@@ -50,7 +56,7 @@ class ReservationsController < ApplicationController
   private
   
   def reservation_params
-    params.require(:reservation).permit(:reservation_name, :reservation_image, :reservation_introduction, :start_date, :end_date, :purson_num, :room_id, :reservation_user_id, :total)
+    params.require(:reservation).permit(:start_date, :end_date, :purson_num, :reservation_user_id, :total)
   end
   
 end

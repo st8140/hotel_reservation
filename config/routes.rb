@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   post '/rooms/create' => 'rooms#create', as: 'rooms'
   
   resources :rooms do
+    collection do
+      get 'search'
+    end
     resources :reservations
     post 'reservations/confirm' => 'reservations#confirm'
     post 'reservations/create' => 'reservations#create'

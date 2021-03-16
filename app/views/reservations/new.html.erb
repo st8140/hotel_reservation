@@ -27,17 +27,17 @@
         <h5 class="price-icon"><%= @room.charge %> / 日</h5>
         
         <div class="room-show-date-select">
-          <%= form_for [@room, @reservation], local: true, url: room_reservations_create_path(@room) do |f| %>
+          <%= form_for [@room, @reservation], local: true, url: room_reservations_confirm_path(@room) do |f| %>
           
           <%= render "shared/error_message", model: f.object %>
           
-            <label for="start_date">開始日</label>
+            <%= f.label :start_date, "開始日" %>
             <%= f.date_field :start_date, class: "form-control mb-4" %>
             
-            <label for="end_date">終了日</label>
+            <%= f.label :end_date, "終了日" %>
             <%= f.date_field :end_date, class: "form-control mb-4" %>
             
-            <label for="purson_num">人数</label>
+            <%= f.label :purson_num, "人数" %>
             <%= f.number_field :purson_num, class: "form-control mb-4" %>
             
             <%= f.hidden_field :room_id, value: @room.id %>

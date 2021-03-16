@@ -25,7 +25,7 @@
           </td>
           
           <td class="posts-name">
-            <%= link_to(room.room_name, room) %>
+            <%= link_to(room.room_name, "/rooms/#{room.room_id}/reservations/new") %>
           </td>
           
           <td class="posts-content"><%= room.room_introduction %></td>
