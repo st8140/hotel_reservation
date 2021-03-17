@@ -19,7 +19,21 @@
             <img alt="サイトロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
           </a>
           
+          <%= search_form_for @search, url: rooms_index_path do |f| %>
+            <div class="header-search d-lg-inline-block d-none">
+              <%= f.search_field :address_cont, class: "form-control",  placeholder: "エリア" %>
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <%= f.submit class: "d-none" %>
+          <% end %>
           
+          <%= search_form_for @search, url: rooms_index_path do |f| %>
+            <div class="header-search d-lg-inline-block d-none">
+              <%= f.search_field :room_name_or_room_introduction_or_charge_or_address_cont, class: "form-control", placeholder: "キーワード" %>
+              <i class="fas fa-search"></i>
+            </div>
+            <%= f.submit class: "d-none" %>
+          <% end %>
         </div>
           <div class="header-right-nav">
             <% if user_signed_in?%>

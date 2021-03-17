@@ -9,10 +9,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction, :user_image])
   end
   
+  
   def set_search
-    @search = User.ransack(params[:q])
+    @search = Room.ransack(params[:q])
     @results = @search.result.order(id: "DESC")
-    
+    @count = @results.count
   end
   
 end

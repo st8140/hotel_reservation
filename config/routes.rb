@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
   get 'users/account' => 'users#show'
   
-  get '/rooms/posts' => 'rooms#index', as: 'index_room'
+  get '/rooms/index' => 'rooms#index'
+  get '/rooms/posts' => 'rooms#show'
   get '/rooms/new' => 'rooms#new', as: 'new_room'
   post '/rooms/create' => 'rooms#create', as: 'rooms'
   

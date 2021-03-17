@@ -485,7 +485,7 @@ textarea.form-control {
 }
 
 
- /*--------------------------------------------- room-index ------------------------------------------------*/
+ /*--------------------------------------------- room-show ------------------------------------------------*/
 
 .room-posts, .reservations {
  max-width: 100vw;
@@ -547,7 +547,61 @@ td + td {
 }
 
 
- /*--------------------------------------------- room-show ------------------------------------------------*/
+ /*--------------------------------------------- room-index ------------------------------------------------*/
+ 
+ .room {
+  width: 100%;
+  padding: 30px 60px;
+ }
+ 
+ .room-image {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 20px;
+  object-fit: cover;
+}
+
+.room-frame-inner {
+  border: 1px solid #e2e2e2;
+  margin-bottom: 10px;
+}
+
+.room-image-out {
+ position: relative;
+ width: 100%;
+ background: #F6F8F9;
+ height: 200px;
+}
+ 
+ .room-profile {
+  width: 100%;
+  padding: 15px;
+}
+
+.room-profile p {
+ word-break: break-all;
+ margin-bottom: 1rem;
+}
+
+.room-profile-name {
+ font-size: 18px;
+ font-weight: bold;
+ color: #909090;
+}
+
+.room-profile-city {
+ font-size: 16px;
+ font-weight: bold;
+}
+
+.room-profile-charge {
+ text-align: right;
+ font-size: 16px;
+ letter-spacing: 1px;
+}
+ 
+ /*--------------------------------------------- reservation-new ------------------------------------------------*/
 
 
 .room-show, .reservations-new {

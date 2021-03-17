@@ -3,8 +3,7 @@ class RoomsController < ApplicationController
   before_action :ensure_current_user, {only: [:edit, :update, :destroy]}
   
   def index
-    @rooms = current_user.rooms
-    @reservation= Reservation.new
+    @room = Room.find_by(id: params[:id])
   end
   
   def new
@@ -22,9 +21,9 @@ class RoomsController < ApplicationController
   end
   
   def show
-    @room = Room.find_by(id: params[:id])
+    @rooms = current_user.rooms
     @user = User.find_by(id: params[:id])
-    @reservation = Reservation.new
+    @reservation= Reservation.new
     
   end
   
@@ -49,9 +48,6 @@ class RoomsController < ApplicationController
     end
   end
   
-  def search
-    
-  end
   
   
   private
