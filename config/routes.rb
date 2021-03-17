@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     post 'reservations/create' => 'reservations#create'
   end 
 
+  get 'reservations' => 'reservations#index', as: 'reservations_index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

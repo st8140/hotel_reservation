@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   
   def index
     @reservations = Reservation.all
+    @room = Room.find_by(params[:id])
   end
   
   def new
