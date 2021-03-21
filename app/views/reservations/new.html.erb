@@ -40,14 +40,18 @@
             <%= f.label :purson_num, "人数" %>
             <%= f.number_field :purson_num, class: "form-control mb-4" %>
             
-            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :room_id, value: @room.room_id %>
             <%= f.hidden_field :reservation_user_id, value: current_user.id %>
+            <%= f.hidden_field :reservation_name, value: @room.room_name %>
+            <%= f.hidden_field :reservation_introduction, value: @room.room_introduction %>
+            <%= f.hidden_field :reservation_image, value: @room.room_image %>
             
             <%= f.submit "予約する", class: "btn btn-primary form-control" %>
             
           <% end %>
           
             <% if @room.user_id == current_user.id %>
+              <%= link_to "ルームを編集する", "/rooms/#{@room.id}/edit", class: "btn form-control btn-primary edit-btn" %>
               <%= link_to "ルームを削除する", "/rooms/#{@room.id}", method: :delete, class: "btn form-control delete-btn", data: { confirm: "本当に削除しますか？" } %>
             <% end %>
         

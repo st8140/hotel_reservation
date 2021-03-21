@@ -13,6 +13,8 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
+      @room.room_id = @room.id
+      @room.save
       flash[:notice] = "ルーム登録が完了しました"
       redirect_to("/rooms/#{@room.id}")
     else
@@ -28,9 +30,17 @@ class RoomsController < ApplicationController
   end
   
   def edit
+    @room = Room.find_by(id: params[:id])
   end
   
   def update
+    @room = Room.find_by(id: params[:id])
+    if @room.update(room_params)
+      flash[:notice] = "ルーム情報を更新しました"
+      redirect_to "/rooms/#{@room.room_id}/reservations/new"
+    else
+      render edit_room_path(@room)
+    end
   end
   
   def destroy
@@ -54,7 +64,7 @@ class RoomsController < ApplicationController
   
   
   def room_params
-    params.require(:room).permit(:room_name, :room_introduction, :charge, :address, :room_image, :user_id)
+    params.require(:room).permit(:room_name, :room_introduction, :charge, :address, :room_image, :user_id, :room_id)
   end
   
 end

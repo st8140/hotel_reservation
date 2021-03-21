@@ -76,6 +76,28 @@ img {
  margin-top: 1.5rem;
 }
 
+.edit-btn {
+ margin-top: 1.5rem;
+}
+
+#error_explanation {
+ width: 450px;
+ border: 2px solid red;
+ padding: 7px 7px 0;
+ margin-bottom: 20px;
+ background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+ text-align: left;
+ font-weight: bold;
+ padding: 5px 5px 5px 15px;
+ font-size: 12px;
+ margin: -7px -7px 0;
+ background-color: #c00;
+ color: #fff;
+}
+
  /*----------------------------header-------------------------------*/
  
  .header {
@@ -567,6 +589,10 @@ td + td {
   margin-bottom: 10px;
 }
 
+.container-field.row {
+ flex-wrap: wrap;
+}
+
 .room-image-out {
  position: relative;
  width: 100%;
@@ -600,6 +626,7 @@ td + td {
  font-size: 16px;
  letter-spacing: 1px;
 }
+
  
  /*--------------------------------------------- reservation-new ------------------------------------------------*/
 

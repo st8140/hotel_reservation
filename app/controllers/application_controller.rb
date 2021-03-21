@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     @count = @results.count
   end
   
+  def after_sign_in_path_for(resource)
+    "/"
+  end
+  
 end
