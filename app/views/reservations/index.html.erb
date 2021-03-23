@@ -17,14 +17,12 @@
       <% @reservations.each do |room| %>
         <tr>
           <td>
-            <%= link_to "/rooms/#{room.id}/reservations/new" do %>
-              <div class="room-image-out">
-                <% if room.persisted? && room.room_image? %>
-                  <%= image_tag room.room_image.to_s, class: "room-image", alt: "部屋画像" %>
+            <%= link_to "/rooms/#{room.room_id}/reservations/new" do %>
+                <% if room.persisted? && room.reservation_image? %>
+                  <%= image_tag room.reservation_image.to_s, class: "reservations-image", alt: "部屋画像" %>
                 <% else %>
-                  <%= image_tag "room_default.jpg", class: "room-image", alt: "部屋画像" %>
+                  <%= image_tag "room_default.jpg", class: "reservations-image", alt: "部屋画像" %>
                 <% end %>  
-              </div>
             <% end %>
           </td>
           

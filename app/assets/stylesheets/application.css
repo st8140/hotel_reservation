@@ -76,6 +76,12 @@ img {
  margin-top: 1.5rem;
 }
 
+.back-btn {
+ background-color: #a9a9a9!important;
+ color: #fff!important;
+ margin-top: 1.5rem;
+}
+
 .edit-btn {
  margin-top: 1.5rem;
 }
@@ -99,6 +105,10 @@ img {
 }
 
  /*----------------------------header-------------------------------*/
+ 
+ .logo {
+  margin-right: 10px;
+ }
  
  .header {
    width: 100%;
@@ -286,6 +296,7 @@ display: block;
  border-radius: 5px;
  margin-bottom: 25px;
 }
+
 
 
  /*-------------------------------------------- new -------------------------------------------------*/
@@ -589,7 +600,7 @@ td + td {
   margin-bottom: 10px;
 }
 
-.container-field.row {
+.container-field .index{
  flex-wrap: wrap;
 }
 

@@ -1,4 +1,9 @@
 class Reservation < ApplicationRecord
+ validate :start_end_check
+ validate :start_check
+ validates :purson_num, presence: true
+ validates :start_date, presence: true
+ validates :end_date, presence: true
  
   
   belongs_to :room
@@ -13,7 +18,5 @@ class Reservation < ApplicationRecord
     errors.add(:start_date, "は本日以降の日付で選択してください" )if
       start_date.nil? || start_date < Date.today
   end
-  
-  
   
 end

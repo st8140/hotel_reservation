@@ -15,9 +15,7 @@
     <header class="header">
       <div class="header-inner">
         <div class="header-left-nav">
-          <a href="/" >
-            <img alt="サイトロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">
-          </a>
+          <%= link_to image_tag("logo.png", alt: "サイトロゴ画像", class: "logo"), "/" %>
           
           <%= search_form_for @search, url: rooms_index_path do |f| %>
             <div class="header-search d-lg-inline-block d-none">
@@ -85,7 +83,7 @@
     <%= yield %>
     
     <footer class="footer">
-      <p>© 2020 POTEPAN.INC.</p>
+      <p>© 2020 ToyamaGroup.INC.</p>
     </footer>
   </body>
 </html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_150222) do
+ActiveRecord::Schema.define(version: 2021_03_22_090245) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "start_date"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_150222) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total"
-    t.integer "reservation_user_id"
+    t.integer "user_id"
     t.string "reservation_name"
     t.string "reservation_image"
     t.text "reservation_introduction"
