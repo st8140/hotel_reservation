@@ -1,0 +1,35 @@
+<div class="container device">
+  <div class="device-form">
+    <p class="my-4">ログイン</p>
+    <div class="device-inner">
+      <%= form_with url:"/login" do |f| %>
+        
+        <% if flash.notice %>
+          <p class="notice error"><%= flash.notice %></p>
+        <% end %>
+        
+        <% if @error_message %>
+          <p class="error_message"><%= @error_message %></p>
+        <% end %>
+        
+        
+        <div class="field form-row">
+          <div class="col-2 required-b pt-2"></div>
+          <%= f.email_field :email, class: "form-control col-10 px-2", placeholder: "メールアドレス" %>
+        </div>
+        <div class="field form-row">
+          <div class="col-2 required-b pt-2"></div>
+          <%= f.password_field :password, class: "form-control col-10 px-2", placeholder: "パスワード" %>
+        </div>
+        
+        <div class="actions">
+          <%= f.submit "ログイン", class: "form-control btn-primary my-4 "%>
+        </div>
+      <% end %>
+      <a href="sign_up">新しいアカウントを作成</a>
+      <br>
+    </div>
+    
+  </div>
+</div>
+

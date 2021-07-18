@@ -1,0 +1,16 @@
+.d-none {
+  display: none!important;
+}
+
+@media (min-width: 576px){
+.d-sm-inline-block {
+  display: inline-block!important;
+}
+}
+
+@media (min-width: 992px){
+.d-lg-inline-block {
+  display: inline-block!important;
+}
+  
+}

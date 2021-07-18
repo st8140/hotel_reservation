@@ -1,0 +1,56 @@
+<div class="container room-show">
+  <div class="row">
+    <div class="col-md-8">
+      <% if @room.persisted? && @room.room_image? %>
+        <%= image_tag @room.room_image.to_s, class: "room-show-image", alt: "部屋画像" %>
+      <% else %>
+        <%= image_tag "room_default.jpg", class: "room-show-image", alt: "部屋画像" %>
+      <% end %> 
+    
+      <div class="room-show-detail">
+        <div class="room-show-detail-icon">
+          <%= link_to image_tag(@user.user_image.to_s, class: "host-icon"), "/" %>
+        </div>
+        
+        <div class="room-show-profile">
+          <p class="room-show-profile-name"><%= @room.room_name %></p>
+          <p class="room-show-profile-address"><%= @room.address %></p>
+        </div>
+      </div>
+      <p class="room-show-detail-content"><%= @room.room_introduction %></p>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="room-show-nav">
+        <h5 class="price-icon"><%= @room.charge %> / 日</h5>
+        
+        <div class="room-show-date-select">
+          <%= form_for [@room, @reservation], local: true, url: room_reservations_confirm_path(@room) do |f| %>
+          
+          <%= render "shared/error_message", model: f.object %>
+          
+            <%= f.label :start_date, "開始日" %>
+            <%= f.date_field :start_date, class: "form-control mb-4" %>
+            
+            <%= f.label :end_date, "終了日" %>
+            <%= f.date_field :end_date, class: "form-control mb-4" %>
+            
+            <%= f.label :purson_num, "人数" %>
+            <%= f.number_field :purson_num, class: "form-control mb-4" %>
+            
+            
+            <%= f.submit "予約する", class: "btn btn-primary form-control" %>
+            
+          <% end %>
+          
+            <% if @room.user_id == current_user.id %>
+              <%= link_to "ルームを編集する", "/rooms/#{@room.id}/edit", class: "btn form-control btn-primary edit-btn" %>
+              <%= link_to "ルームを削除する", "/rooms/#{@room.id}", method: :delete, class: "btn form-control delete-btn", data: { confirm: "本当に削除しますか？" } %>
+            <% end %>
+        
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
